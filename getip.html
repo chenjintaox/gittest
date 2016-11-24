@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <title>获取本地IP地址</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <button>获取IP地址</button>
+  <div></div>
+</body>
+<!--百度静态资源jquery-->
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+$('button').click(function(){
+	$.getScript('http://pv.sohu.com/cityjson',function (response, status) {
+		if(status == 'success'){
+			//document.write(returnCitySN["cip"]+','+returnCitySN["cname"]);
+			<!--转换成html的ul list-->
+			var html='<ul>'
+			for(var iterm in returnCitySN){
+				html+='<li><strong>'+iterm+':</strong>'+returnCitySN[iterm]+'</li>'
+			}
+			html+='</ul>'
+			<!--设置div内容-->
+			$('div').html(html);
+		}else{
+			$('div').text('获取IP地址失败');		
+		}		
+	})	
+}); 
+</script>
+</html>
