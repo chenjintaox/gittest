@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Quill Editor</title>
+    <!-- Include Quill stylesheet -->
+    <!--
+    <link href="//cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+    -->
+    <!--因为CDN比较慢，换用本地的quill.snow.css-->
+    <link href="quill.snow.css" rel="stylesheet">
+    
+    <style>
+        .quill-container {
+            margin: 50px auto;
+            width: 720px;
+        }
+        #editor { height: 350px }
+    </style>
+</head>
+<body>
+    <div class = "quill-container">
+        <!-- Create the toolbar container -->
+        <div id="toolbar">
+            <button class="ql-bold">Bold</button>
+            <button class="ql-italic">Italic</button>
+            <button class="ql-underline"></button>
+            <button class="ql-header" value="1"></button>
+            <button class="ql-header" value="2"></button>
+            <button class="ql-blockquote"></button>
+        </div>
+
+        <!-- Create the editor container -->
+        <div id="editor">
+            <p>Hello World!</p>
+        </div>
+    </div>
+
+    <!-- Include the Quill library -->
+    <!--
+    <script src="//cdn.quilljs.com/1.0.0/quill.min.js"></script>
+    -->
+    <!--因为CDN比较慢，换用本地的quill.min.js-->
+    <script src="quill.min.js"></script>
+    <!-- Initialize Quill editor -->
+    <script>
+      var editor = new Quill('#editor', {
+        modules: { toolbar: '#toolbar' },
+        theme: 'snow'
+      });
+    </script>
+</body>
+</html>
